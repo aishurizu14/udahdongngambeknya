@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(#0B1026,#1B2A6B);
+    color:white;
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:500px;
+    text-align:center;
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+p{
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    font-size:18px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#4CAF50;
+    color:white;
+}
+
+.no{
+    background:#ff4d6d;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 id="judul">❤️ Pertanyaan 1</h2>
+
+<p id="teks">Mau jawab beberapa pertanyaan?</p>
+
+<button class="yes" onclick="next()">Yes 💖</button>
+<button class="no">No 💔</button>
+
+</div>
+
+<script>
+
+// 🌙 isi pertanyaan
+const data = [
+
+{
+judul:"❤️ Pertanyaan 1",
+teks:"Mau jawab beberapa pertanyaan?"
+},
+
+{
+judul:"🥺 Pertanyaan 2",
+teks:"Masih mau lanjut?"
+},
+
+{
+judul:"✨ Pertanyaan 3",
+teks:"Siap lihat sesuatu yang spesial?"
+},
+
+{
+judul:"💌 Untuk Kamu",
+teks:"Terima kasih sudah sampai sini. Kamu sangat berarti ❤️"
+}
+
+];
+
+let index = 0;
+
+// 🔁 ganti pertanyaan
+function next(){
+
+index++;
+
+if(index < data.length){
+
+document.getElementById("judul").innerText = data[index].judul;
+document.getElementById("teks").innerText = data[index].teks;
+
+if(index == data.length - 1){
+document.querySelector(".yes").style.display = "none";
+document.querySelector(".no").style.display = "none";
+}
+
+}
+
+}
+
+// 😂 tombol no kabur
+const noBtn = document.querySelector(".no");
+
+function kabur(){
+
+noBtn.style.position = "fixed";
+
+noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+
+}
+
+noBtn.addEventListener("mouseover", kabur);
+noBtn.addEventListener("touchstart", function(e){
+e.preventDefault();
+kabur();
+});
+
+</script>
+
+</body>
+</html>
