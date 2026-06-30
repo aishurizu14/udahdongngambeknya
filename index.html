@@ -69,71 +69,51 @@ button{
 </div>
 
 <script>
-
-// 🌙 isi pertanyaan
 const data = [
-
 {
 judul:"❤️ Pertanyaan 1",
 teks:"Mau jawab beberapa pertanyaan?"
 },
-
 {
 judul:"🥺 Pertanyaan 2",
 teks:"Masih mau lanjut?"
 },
-
 {
 judul:"✨ Pertanyaan 3",
 teks:"Siap lihat sesuatu yang spesial?"
-},
-
-{
-judul:"💌 Untuk Kamu",
-teks:"Terima kasih sudah sampai sini. Kamu sangat berarti ❤️"
 }
-
 ];
 
 let index = 0;
 
-// 🔁 ganti pertanyaan
 function next(){
 
-index++;
+    index++;
 
-if(index < data.length){
+    // Kalau sudah selesai semua pertanyaan
+    if(index >= data.length){
+        window.location.href = "love.html"; // ganti sesuai nama file tujuan
+        return;
+    }
 
-document.getElementById("judul").innerText = data[index].judul;
-document.getElementById("teks").innerText = data[index].teks;
-
-if(index == data.length - 1){
-document.querySelector(".yes").style.display = "none";
-document.querySelector(".no").style.display = "none";
-}
-
-}
-
+    document.getElementById("judul").innerText = data[index].judul;
+    document.getElementById("teks").innerText = data[index].teks;
 }
 
 // 😂 tombol no kabur
 const noBtn = document.querySelector(".no");
 
 function kabur(){
-
-noBtn.style.position = "fixed";
-
-noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
-
+    noBtn.style.position = "fixed";
+    noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
 }
 
 noBtn.addEventListener("mouseover", kabur);
 noBtn.addEventListener("touchstart", function(e){
-e.preventDefault();
-kabur();
+    e.preventDefault();
+    kabur();
 });
-
 </script>
 
 </body>
