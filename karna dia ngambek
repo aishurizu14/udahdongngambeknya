@@ -1,0 +1,114 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Georgia, "Comic Sans MS";
+}
+
+body{
+    background:linear-gradient(180deg,#0f172a,#1e293b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    background:#fffdf8;
+    width:90%;
+    max-width:700px;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+    text-align:center;
+    animation:muncul .8s ease;
+}
+
+/* TEXT */
+h2{
+    color:#0B1026;
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+p{
+    color:#444;
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:30px;
+    white-space:pre-line;
+}
+
+/* BUTTONS */
+.buttons{
+    transition:.3s;
+}
+
+button{
+    padding:12px 28px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.yes{
+    background:#0B1026;
+    color:white;
+}
+
+.no{
+    background:#d9534f;
+    color:white;
+}
+
+/* LOADING */
+.loading{
+    display:none;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin:20px 0;
+}
+
+.dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#d8d8d8;
+    transition:.18s;
+}
+
+.dot.active{
+    background:#0B1026;
+}
+
+/* FADE TEXT */
+.fade{
+    animation:fade .3s;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* CARD ANIMATION */
+@keyframes muncul{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
