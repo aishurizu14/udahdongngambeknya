@@ -1,120 +1,51 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For You ❤️</title>
+    <title>For You ❤️</title>
 
-<style>
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(#0B1026,#1B2A6B);
-    color:white;
-    font-family:Arial,sans-serif;
-    overflow:hidden;
-}
-
-.container{
-    width:90%;
-    max-width:500px;
-    text-align:center;
-}
-
-h2{
-    margin-bottom:15px;
-}
-
-p{
-    margin-bottom:20px;
-    line-height:1.6;
-}
-
-button{
-    padding:12px 25px;
-    margin:10px;
-    font-size:18px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-}
-
-.yes{
-    background:#4CAF50;
-    color:white;
-}
-
-.no{
-    background:#ff4d6d;
-    color:white;
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-<h2 id="judul">❤️ Pertanyaan 1</h2>
+    <h2 id="judul">❤️ Pertanyaan 1</h2>
 
-<p id="teks">Mau jawab beberapa pertanyaan?</p>
+    <p id="teks">
+        ...
+    </p>
 
-<button class="yes" onclick="next()">Yes 💖</button>
-<button class="no">No 💔</button>
+    <!-- LOADING -->
+    <div class="loading" id="loading">
+
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="buttons" id="buttons">
+
+        <button class="yes" onclick="nextStep()" type="button">
+            Yes 💖
+        </button>
+
+        <button class="no" type="button">
+            No 💔
+        </button>
+
+    </div>
 
 </div>
 
-<script>
-const data = [
-{
-judul:"❤️ Pertanyaan 1",
-teks:"Mau jawab beberapa pertanyaan?"
-},
-{
-judul:"🥺 Pertanyaan 2",
-teks:"Masih mau lanjut?"
-},
-{
-judul:"✨ Pertanyaan 3",
-teks:"Siap lihat sesuatu yang spesial?"
-}
-];
-
-let index = 0;
-
-function next(){
-
-    index++;
-
-    // Kalau sudah selesai semua pertanyaan
-    if(index >= data.length){
-        window.location.href = "https://aishurizu14.github.io/foryou/"; // ganti sesuai nama file tujuan
-        return;
-    }
-
-    document.getElementById("judul").innerText = data[index].judul;
-    document.getElementById("teks").innerText = data[index].teks;
-}
-
-// 😂 tombol no kabur
-const noBtn = document.querySelector(".no");
-
-function kabur(){
-    noBtn.style.position = "fixed";
-    noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-    noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
-}
-
-noBtn.addEventListener("mouseover", kabur);
-noBtn.addEventListener("touchstart", function(e){
-    e.preventDefault();
-    kabur();
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
